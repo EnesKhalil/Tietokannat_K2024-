@@ -6,6 +6,9 @@ var logger = require('morgan');
 const bookRouter = require('./routes/book');
 var app = express();
 
+const borrowerRouter = require('./routes/borrower');
+
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -13,5 +16,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/book', bookRouter);
+app.use('/borrower', borrowerRouter);
 
 module.exports = app;
